@@ -1,4 +1,3 @@
- Change these
 server '138.68.136.177', port: 22, roles: [:web, :app, :db], primary: true
 
 set :repo_url,        'git@github.com:eduardogpg/sb.git'
