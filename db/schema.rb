@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180129010654) do
+ActiveRecord::Schema.define(version: 20180129011034) do
+
+  create_table "fact_tags", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+    t.bigint "fact_id"
+    t.bigint "tag_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["fact_id"], name: "index_fact_tags_on_fact_id"
+    t.index ["tag_id"], name: "index_fact_tags_on_tag_id"
+  end
 
   create_table "facts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string "title", limit: 50
@@ -23,4 +32,12 @@ ActiveRecord::Schema.define(version: 20180129010654) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "tags", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+    t.string "title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_foreign_key "fact_tags", "facts"
+  add_foreign_key "fact_tags", "tags"
 end
