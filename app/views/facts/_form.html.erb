@@ -1,0 +1,47 @@
+<%= form_with(model: fact, local: true) do |form| %>
+  <% if fact.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(fact.errors.count, "error") %> prohibited this fact from being saved:</h2>
+
+      <ul>
+      <% fact.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title, id: :fact_title %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_field :description, id: :fact_description %>
+  </div>
+
+  <div class="field">
+    <%= form.label :real %>
+    <%= form.check_box :real, id: :fact_real %>
+  </div>
+
+  <div class="field">
+    <%= form.label :color %>
+    <%= form.text_field :color, id: :fact_color %>
+  </div>
+
+  <div class="field">
+    <%= form.label :code %>
+    <%= form.text_field :code, id: :fact_code %>
+  </div>
+
+  <div class="field">
+    <%= form.label :resource %>
+    <%= form.text_field :resource, id: :fact_resource %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
