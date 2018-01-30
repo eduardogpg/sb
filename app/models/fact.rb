@@ -14,4 +14,37 @@
 #
 
 class Fact < ApplicationRecord
+
+  validates :title, presence: true
+  validates :description, presence: true
+
+  before_create :set_color
+  before_create :set_code
+
+  has_many :fact_tags, dependent: :destroy
+  
+  def self.new_by_params(params)
+    new(title:params[:title], description:params[:description], resource:params[:resource])
+  end
+
+  def self.generate_with_tags(fact, tags)
+    if fact.save
+      tags.each { |tag| FactTag.generate_by_fact(fact, tag) }
+      fact
+    end
+  end
+  
+  private
+    def generate_code
+      SecureRandom.uuid
+    end
+
+    def set_code
+      self.code = generate_code
+    end
+
+    def set_color
+      self.color ||= '#' + SecureRandom.hex(3)
+    end
+
 end

@@ -25,21 +25,16 @@
     <%= form.label :real %>
     <%= form.check_box :real, id: :fact_real %>
   </div>
-
-  <div class="field">
-    <%= form.label :color %>
-    <%= form.text_field :color, id: :fact_color %>
-  </div>
-
-  <div class="field">
-    <%= form.label :code %>
-    <%= form.text_field :code, id: :fact_code %>
-  </div>
-
+  
   <div class="field">
     <%= form.label :resource %>
     <%= form.text_field :resource, id: :fact_resource %>
   </div>
+
+  <div class="field">
+   <%= form.label :tags %>
+    <%= form.text_field :tags, id: :fact_tags %>
+  </div>    
 
   <div class="actions">
     <%= form.submit %>
