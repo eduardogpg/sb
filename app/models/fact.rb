@@ -22,18 +22,15 @@ class Fact < ApplicationRecord
   before_create :set_code
 
   has_many :fact_tags, dependent: :destroy
-  
+
   def self.new_by_params(params)
     new(title:params[:title], description:params[:description], resource:params[:resource])
   end
-
-  def self.generate_with_tags(fact, tags)
-    if fact.save
-      tags.each { |tag| FactTag.generate_by_fact(fact, tag) }
-      fact
-    end
-  end
   
+  def self.generate_with_tags(fact, tags)
+    tags.each { |tag| FactTag.generate_by_fact(fact, tag) } if fact.save
+  end
+
   private
     def generate_code
       SecureRandom.uuid
