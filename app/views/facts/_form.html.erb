@@ -11,32 +11,28 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title, id: :fact_title %>
+  <div class="form-group">
+    <%= form.text_field :title, id: :fact_title, placeholder:"Título", class:"form-control" %>
   </div>
 
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_field :description, id: :fact_description %>
+  <div class="form-group">
+    <%= form.text_field :description, id: :fact_description, class:"form-control", placeholder:"Descripción" %>
   </div>
 
-  <div class="field">
-    <%= form.label :real %>
-    <%= form.check_box :real, id: :fact_real %>
+  <div class="form-group">
+    <%= form.text_field :tags, id: :fact_tags, placeholder:"Tags", class:"form-control" %>
+  </div>
+
+  <div class="form-check">
+    <%= form.check_box :real, id: :fact_real, class:"form-check-input"%>
+    <label class="form-check-label" for="real">Real</label>
   </div>
   
-  <div class="field">
-    <%= form.label :resource %>
-    <%= form.text_field :resource, id: :fact_resource %>
+  <div class="form-group">
+    <%= form.text_field :resource, id: :fact_resource, placeholder:"Recurso", class:"form-control" %>
   </div>
-
-  <div class="field">
-   <%= form.label :tags %>
-    <%= form.text_field :tags, id: :fact_tags %>
-  </div>    
-
+  
   <div class="actions">
-    <%= form.submit %>
+    <button type="submit" class="btn primary-button">Crear</button>
   </div>
 <% end %>

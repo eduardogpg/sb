@@ -1,0 +1,33 @@
+body {
+  
+}
+
+.navbar-brand-sb{
+  color: white;
+  
+  display: inline-block;
+  padding-top: .3125rem;
+  padding-bottom: .3125rem;
+  margin-right: 1rem;
+  font-size: 1.25rem;
+  line-height: inherit;
+  white-space: nowrap;
+}
+
+.navbar-brand-sb:hover{
+  text-decoration:underline;
+}
+
+.navbar-light .navbar-nav .nav-link{
+  color: white;
+}
+
+.navbar-light .navbar-nav .navbar-brand-sb .nav-link:hover{
+  color: white;
+  text-decoration:underline;
+}
+
+.primary-button{
+  background-color: #18bc9c;
+  color: white;
+}
