@@ -15,23 +15,39 @@
 
 class Fact < ApplicationRecord
 
+  include Dateable
+
+  attr_accessor :labels
+
+  validates :labels, presence: true
   validates :title, presence: true
   validates :description, presence: true
 
   before_create :set_color
   before_create :set_code
+  after_save :create_fact_tags
 
   has_many :fact_tags, dependent: :destroy
+  has_many :tags, through: :fact_tags, source: :tag
 
-  def self.new_by_params(params)
-    new(title:params[:title], description:params[:description], resource:params[:resource])
+  def labels_format
+    (tags.any?) ? tags_format : ''
   end
-  
-  def self.generate_with_tags(fact, tags)
-    tags.each { |tag| FactTag.generate_by_fact(fact, tag) } if fact.save
+
+  def tags_format(str='', prefix=',')
+    tags.each { |tag| str = str + " " + tag.title + prefix }
+    str.strip[0..-2]
   end
 
   private
+    def create_fact_tags
+      labels.split(',').each { |tag| create_fact_tag(tag) } #Label is a attr_accessor
+    end
+
+    def create_fact_tag(tag='')
+      FactTag.create_by_fact_tags(self, Tag.get_or_create_by_title(tag))
+    end
+
     def generate_code
       SecureRandom.uuid
     end

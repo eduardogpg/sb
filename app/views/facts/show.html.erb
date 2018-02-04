@@ -1,34 +1,21 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Title:</strong>
-  <%= @fact.title %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @fact.description %>
-</p>
-
-<p>
-  <strong>Real:</strong>
-  <%= @fact.real %>
-</p>
-
-<p>
-  <strong>Color:</strong>
-  <%= @fact.color %>
-</p>
-
-<p>
-  <strong>Code:</strong>
-  <%= @fact.code %>
-</p>
-
-<p>
-  <strong>Resource:</strong>
-  <%= @fact.resource %>
-</p>
-
-<%= link_to 'Edit', edit_fact_path(@fact) %> |
-<%= link_to 'Back', facts_path %>
+<div class="container">
+  <br>
+  <div class="card text-center">
+    <div class="card-header">
+      <%= @fact.code %>
+    </div>
+    <div class="card-block">
+      
+      <h4 class="card-title"> <%= @fact.title %></h4>
+      <p class="card-text"> <%= @fact.description %> </p>
+      
+      <%= link_to 'Editar', edit_fact_path(@fact), class:"btn btn-primary"%>
+      <%= link_to 'Eliminar', @fact, method: :delete, data: { confirm: '¿Estas seguro de eliminar el dato?' }, class:"btn btn-danger" %>
+      
+    </div>
+    <br>
+    <div class="card-footer text-muted">
+     Fecha de creación: <%= @fact.created_at_format %>
+    </div>
+  </div>
+</div>

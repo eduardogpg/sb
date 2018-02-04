@@ -16,8 +16,7 @@ class FactTag < ApplicationRecord
   validates :fact, presence: true
   validates :tag, presence: true
 
-  def self.generate_by_fact(fact, tag)
-    create(fact:fact, tag:tag)
+  def self.create_by_fact_tags(fact, tag)
+    find_or_create_by(fact: fact, tag:tag)
   end
-
 end
