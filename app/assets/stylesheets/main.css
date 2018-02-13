@@ -1,10 +1,41 @@
-body {
-  
+body{
+  background: #f7f8fa;
+  font-family: 'Roboto', sans-serif;
+}
+
+.btn-sb{
+  background-color: #1abc9c;
+  color: white;
+}
+
+.btn-sb:hover{
+  background-color: #1abc9c;
+  color: white;
+  text-decoration: none; 
+}
+
+.nav-btn-sb{
+  background-color: #1abc9c;
+  color: white;
+}
+
+.nav-btn-sb:hover {
+  background-color: #1c2b3a;
+  color: #1abc9c;
+  border: 1px solid #1abc9c;
+}
+
+.link-sb{
+  color: white;
+}
+
+.link-sb:hover{
+  background-color: #1c2b3a;
+  color: #1abc9c;
+  text-decoration: none;
 }
 
 .navbar-brand-sb{
-  color: white;
-  
   display: inline-block;
   padding-top: .3125rem;
   padding-bottom: .3125rem;
@@ -12,22 +43,35 @@ body {
   font-size: 1.25rem;
   line-height: inherit;
   white-space: nowrap;
+  color: white;
 }
 
 .navbar-brand-sb:hover{
-  text-decoration:underline;
+  display: inline-block;
+  padding-top: .3125rem;
+  padding-bottom: .3125rem;
+  margin-right: 1rem;
+  font-size: 1.25rem;
+  line-height: inherit;
+  white-space: nowrap;
+  color: #1abc9c;
+  text-decoration: none; 
 }
 
-.navbar-light .navbar-nav .nav-link{
+.nav-link-sb {
   color: white;
+  text-decoration: none; 
 }
 
-.navbar-light .navbar-nav .navbar-brand-sb .nav-link:hover{
-  color: white;
-  text-decoration:underline;
+.navbar-light .navbar-nav .nav-link-sb:hover {
+  color: #1abc9c;
+  text-decoration: none; 
 }
 
-.primary-button{
-  background-color: #18bc9c;
-  color: white;
+.custom-toggler.navbar-toggler {
+    border-color: white;
 }
+.custom-toggler .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='white' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+}
+
